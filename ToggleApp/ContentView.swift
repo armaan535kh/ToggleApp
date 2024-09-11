@@ -7,13 +7,18 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    @State private var isWifiOn = false
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Toggle("Wi-Fi", systemImage: isWifiOn ? "wifi" : "wifi.slash", isOn: $isWifiOn)
+                .font(.largeTitle)
+                .tint(.pink)
+                .toggleStyle(.button)
+                .labelStyle(.iconOnly)
+                .contentTransition(.symbolEffect)
         }
         .padding()
     }
